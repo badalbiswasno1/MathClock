@@ -759,6 +759,7 @@ id radio
 id report_drawn
 id right_icon
 id right_side
+id root
 id screen
 id scrollIndicatorDown
 id scrollIndicatorUp
@@ -807,6 +808,7 @@ id textSpacerNoTitle
 id time
 id title
 id titleDividerNoCustom
+id titleText
 id title_template
 id top
 id topPanel
@@ -819,6 +821,7 @@ id view_tree_on_back_pressed_dispatcher_owner
 id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
 id visible_removing_fragment_view_tag
+id watermarkText
 id withText
 id wrap_content
 integer abc_config_activityDefaultDur
