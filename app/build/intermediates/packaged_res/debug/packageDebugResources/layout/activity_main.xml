@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.badal.mathclock.ClockView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/clockView"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000" />
+    android:orientation="vertical"
+    android:background="#000000"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="A Clock With Too Much Math"
+        android:textColor="#E8C040"
+        android:textSize="22sp"
+        android:fontFamily="serif" />
+
+    <com.badal.mathclock.ClockView
+        android:id="@+id/clockView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="MathClock"
+        android:textColor="#444444"
+        android:textSize="14sp"
+        android:fontFamily="serif" />
+
+</LinearLayout>

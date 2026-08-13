@@ -115,11 +115,12 @@ class ClockView @JvmOverloads constructor(
                 canvas.drawText(expr.den, x - base.measureText(expr.den) / 2, y + 25, base)
             }
             is Expr.Log -> {
-                val text = "log"
-                canvas.drawText(text, x - 30, y, base)
                 val small = Paint(base).apply { textSize = base.textSize * 0.6f }
-                canvas.drawText(expr.base, x - 5, y + 10, small)
-                canvas.drawText(expr.arg, x + 15, y, base)
+                val logText = "log"
+                canvas.drawText(logText, x - 40, y, base)
+                val logWidth = base.measureText(logText)
+                canvas.drawText(expr.base, x - 40 + logWidth, y + 10, small)
+                canvas.drawText(expr.arg, x - 40 + logWidth + small.measureText(expr.base) + 5, y, base)
             }
             is Expr.Comb -> {
                 val small = Paint(base).apply { textSize = base.textSize * 0.55f }

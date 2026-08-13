@@ -4,7 +4,11 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/8.7/com.badal.mathclock.app-main-25:/layout/activity_main.xml"
     },
     {
-        "merged": "com.badal.mathclock.app-debug-23:/drawable_ic_launcher.xml.flat",
-        "source": "com.badal.mathclock.app-main-25:/drawable/ic_launcher.xml"
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/8.7/com.badal.mathclock.app-debug-23:/drawable_ic_launcher.xml.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/8.7/com.badal.mathclock.app-main-25:/drawable/ic_launcher.xml"
+    },
+    {
+        "merged": "com.badal.mathclock.app-debug-23:/layout_activity_main.xml.flat",
+        "source": "com.badal.mathclock.app-main-25:/layout/activity_main.xml"
     }
 ]
