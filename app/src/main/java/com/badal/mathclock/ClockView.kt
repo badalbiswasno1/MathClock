@@ -44,6 +44,7 @@ class ClockView @JvmOverloads constructor(
     private val red = Paint().apply { color = Color.RED; strokeWidth = 4f; isAntiAlias = true }
     private val blue = Paint().apply { color = Color.CYAN; strokeWidth = 6f; isAntiAlias = true }
     private val ring = Paint().apply { style = Paint.Style.STROKE; strokeWidth = 12f; isAntiAlias = true; color = Color.MAGENTA }
+    private val tickPaint = Paint().apply { color = Color.parseColor("#2E8B8B"); strokeWidth = 3f; isAntiAlias = true }
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
@@ -63,6 +64,17 @@ class ClockView @JvmOverloads constructor(
         val radius = min(width, height) / 2.2f
 
         canvas.drawCircle(cx, cy, radius, ring)
+
+        for (t in 0 until 60) {
+            val a = Math.toRadians((t * 6 - 90).toDouble())
+            val outer = radius - 6
+            val inner = if (t % 5 == 0) radius - 24 else radius - 14
+            val x1 = cx + outer * cos(a).toFloat()
+            val y1 = cy + outer * sin(a).toFloat()
+            val x2 = cx + inner * cos(a).toFloat()
+            val y2 = cy + inner * sin(a).toFloat()
+            canvas.drawLine(x1, y1, x2, y2, tickPaint)
+        }
 
         for (i in 1..12) {
             val angle = Math.toRadians((i * 30 - 90).toDouble())
@@ -108,6 +120,12 @@ class ClockView @JvmOverloads constructor(
                 val small = Paint(base).apply { textSize = base.textSize * 0.6f }
                 canvas.drawText(expr.base, x - 5, y + 10, small)
                 canvas.drawText(expr.arg, x + 15, y, base)
+            }
+            is Expr.Comb -> {
+                val small = Paint(base).apply { textSize = base.textSize * 0.55f }
+                canvas.drawText(expr.letter, x - 15, y, base)
+                canvas.drawText(expr.top, x + 8, y - 15, small)
+                canvas.drawText(expr.bottom, x + 8, y + 20, small)
             }
         }
     }
