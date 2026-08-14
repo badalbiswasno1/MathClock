@@ -33,6 +33,31 @@
             </intent-filter>
         </activity>
 
+        <receiver
+            android:name="com.badal.mathclock.MathClockWidgetProvider"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/math_clock_widget_info" />
+        </receiver>
+
+        <service
+            android:name="com.badal.mathclock.MathClockWallpaperService"
+            android:exported="true"
+            android:permission="android.permission.BIND_WALLPAPER" >
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/wallpaper" />
+        </service>
+
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="com.badal.mathclock.androidx-startup"

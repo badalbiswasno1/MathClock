@@ -5,5 +5,11 @@ id clockView
 id root
 id titleText
 id watermarkText
+id widgetImage
 layout activity_main
+layout widget_layout
+string app_name
+string wallpaper_description
 style Theme.MathClock
+xml math_clock_widget_info
+xml wallpaper
