@@ -38,10 +38,12 @@ class ClockView @JvmOverloads constructor(
 
     private val formulaSwapRunnable = object : Runnable {
         override fun run() {
-            val key = (1..12).random()
-            current[key] = FormulaBank.random(key)
+            val positions = (1..12).shuffled().take(6)
+            for (key in positions) {
+                current[key] = FormulaBank.random(key)
+            }
             invalidate()
-            handler.postDelayed(this, 4000)
+            handler.postDelayed(this, 5000)
         }
     }
 
